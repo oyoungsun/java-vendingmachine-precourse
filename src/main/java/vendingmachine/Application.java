@@ -5,6 +5,8 @@ import vendingmachine.view.InputView;
 public class Application {
     public static void main(String[] args) {
         InputView inputView = new InputView();
-        VendingMachineController controller = new VendingMachineController(inputView);
+        CoinGenerator generator = new CoinGenerator();
+        VendingMachineController controller = new VendingMachineController(inputView, generator);
+        controller.run();
     }
 }
