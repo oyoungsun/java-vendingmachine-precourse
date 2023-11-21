@@ -22,11 +22,17 @@ public class OutputView {
         printEmpty();
     }
 
+    public static void printRequestProducts() {
+        System.out.println(OutputMessage.REQUEST_PRODUCTS.getView());
+    }
+
     private static void printEmpty() {
         System.out.println();
     }
+
 }
-enum OutputMessage{
+
+enum OutputMessage {
     REQUEST_HOLD_MONEY("자판기가 보유하고 있는 금액을 입력해 주세요."),
     HOLE_MONEY("자판기가 보유한 동전"),
     REQUEST_PRODUCTS("상품명과 가격, 수량을 입력해 주세요."),

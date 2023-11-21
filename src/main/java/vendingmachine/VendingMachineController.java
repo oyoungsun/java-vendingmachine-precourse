@@ -3,6 +3,8 @@ package vendingmachine;
 import java.util.HashMap;
 import java.util.Map;
 import vendingmachine.d.HoldCoinDto;
+import vendingmachine.domain.Products;
+import vendingmachine.service.PurchaseService;
 import vendingmachine.utils.ExceptionHandler;
 import vendingmachine.view.InputView;
 import vendingmachine.view.OutputView;
@@ -11,6 +13,7 @@ public class VendingMachineController {
     private final InputView inputView;
     private final CoinGenerator generator;
     private VendingMachine vendingMachine;
+    private PurchaseService purchaseService;
 
     public VendingMachineController(final InputView inputView, final CoinGenerator generator) {
         this.inputView = inputView;
@@ -41,7 +44,9 @@ public class VendingMachineController {
     }
 
     private void setProducts() {
-
+        OutputView.printRequestProducts();
+        Products products = inputView.readProducts();
+        purchaseService = PurchaseService.from(products);
     }
 
     private void setInputMoney() {
