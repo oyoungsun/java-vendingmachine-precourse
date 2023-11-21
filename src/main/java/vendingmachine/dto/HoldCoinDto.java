@@ -1,7 +1,7 @@
-package vendingmachine.d;
+package vendingmachine.dto;
 
 import java.util.Map;
-import vendingmachine.Coin;
+import vendingmachine.domain.Coin;
 
 public class HoldCoinDto {
     private Map<Coin, Integer> coins;

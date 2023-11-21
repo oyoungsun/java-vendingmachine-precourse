@@ -1,9 +1,12 @@
 package vendingmachine;
 
 import java.util.Map;
-import vendingmachine.d.HoldCoinDto;
+import vendingmachine.domain.Coin;
+import vendingmachine.domain.CoinGenerator;
+import vendingmachine.dto.HoldCoinDto;
 import vendingmachine.domain.Products;
 import vendingmachine.service.PurchaseService;
+import vendingmachine.service.VendingMachine;
 import vendingmachine.utils.ExceptionHandler;
 import vendingmachine.view.InputView;
 import vendingmachine.view.OutputView;

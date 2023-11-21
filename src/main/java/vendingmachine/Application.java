@@ -1,5 +1,6 @@
 package vendingmachine;
 
+import vendingmachine.domain.CoinGenerator;
 import vendingmachine.view.InputView;
 
 public class Application {

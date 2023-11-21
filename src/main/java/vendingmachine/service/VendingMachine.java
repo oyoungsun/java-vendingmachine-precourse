@@ -1,11 +1,13 @@
-package vendingmachine;
+package vendingmachine.service;
 
 import java.util.Collections;
 import java.util.Map;
+import vendingmachine.domain.Coin;
+import vendingmachine.domain.CoinGenerator;
 
 public class VendingMachine {
     public final int holdMoney;
-    public final Map<Coin, Integer> coins;
+    public final Map<Coin, Integer> coins; //TODO : 일급컬렉션 분리
 
     public VendingMachine(final int holdMoney, final CoinGenerator generator) {
         this.holdMoney = holdMoney;

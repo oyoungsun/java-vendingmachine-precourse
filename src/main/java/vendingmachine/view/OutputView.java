@@ -1,7 +1,7 @@
 package vendingmachine.view;
 
-import vendingmachine.Coin;
-import vendingmachine.d.HoldCoinDto;
+import vendingmachine.domain.Coin;
+import vendingmachine.dto.HoldCoinDto;
 
 public class OutputView {
     public static void printExceptionMessage(final String message, final String format) {
