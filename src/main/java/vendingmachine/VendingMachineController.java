@@ -1,5 +1,8 @@
 package vendingmachine;
 
+import java.util.HashMap;
+import java.util.Map;
+import vendingmachine.d.HoldCoinDto;
 import vendingmachine.utils.ExceptionHandler;
 import vendingmachine.view.InputView;
 import vendingmachine.view.OutputView;
@@ -32,6 +35,9 @@ public class VendingMachineController {
     }
 
     private void setCoins() {
+        Map<Coin, Integer> coins = vendingMachine.getCoins();
+        HoldCoinDto coinDto = HoldCoinDto.from(coins);
+        OutputView.printHoldCoin(coinDto);
     }
 
     private void setProducts() {
