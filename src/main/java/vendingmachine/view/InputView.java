@@ -23,7 +23,7 @@ public class InputView {
     private static final String PRODUCT_REGEX = "\\"+PREFIX+"([^,]+),(\\d+),(\\d+)"+"\\"+SUFFIX; //TODO : [^,]+를 [,]제외한 모든 문자로
     private static final Pattern PRODUCT = Pattern.compile(PRODUCT_REGEX);
 
-    public int readHoldMoney() {
+    public int readMoney() {
         int input = readInt();
         if (input < 0) {
             throw new IllegalArgumentException(BOUNDARY);
@@ -94,4 +94,5 @@ public class InputView {
         }
         return input;
     }
+
 }

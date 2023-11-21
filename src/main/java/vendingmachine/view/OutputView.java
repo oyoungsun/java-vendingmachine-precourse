@@ -21,14 +21,17 @@ public class OutputView {
         printEmpty();
     }
 
-    public static void printRequestProducts() {
-        System.out.println(OutputMessage.REQUEST_PRODUCTS.getView());
-    }
-
     private static void printEmpty() {
         System.out.println();
     }
 
+    public static void printRequestProducts() {
+        System.out.println(OutputMessage.REQUEST_PRODUCTS.getView());
+    }
+
+    public static void printRequestInputMoney() {
+        System.out.println(OutputMessage.REQUEST_INPUT_MOENY.getView());
+    }
 }
 
 enum OutputMessage {

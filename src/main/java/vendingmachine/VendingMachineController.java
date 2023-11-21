@@ -1,6 +1,5 @@
 package vendingmachine;
 
-import java.util.HashMap;
 import java.util.Map;
 import vendingmachine.d.HoldCoinDto;
 import vendingmachine.domain.Products;
@@ -24,8 +23,9 @@ public class VendingMachineController {
     public void run() {
         setHoldMoney();
         setCoins();
-        setProducts();
-        setInputMoney();
+        Products products = setProducts();
+        int inputMoney = setInputMoney();
+        purchaseService = PurchaseService.from(products, inputMoney);
         while (IsStilChange()) {
             showResult();
         }
@@ -33,7 +33,7 @@ public class VendingMachineController {
 
     private void setHoldMoney() {
         OutputView.printRequestHoldMoney();
-        int holdMoney = ExceptionHandler.input(inputView::readHoldMoney, 0);
+        int holdMoney = ExceptionHandler.input(inputView::readMoney, 0);
         vendingMachine = VendingMachine.from(holdMoney, generator);
     }
 
@@ -43,14 +43,14 @@ public class VendingMachineController {
         OutputView.printHoldCoin(coinDto);
     }
 
-    private void setProducts() {
+    private Products setProducts() {
         OutputView.printRequestProducts();
-        Products products = ExceptionHandler.input(inputView::readProducts, 0);
-        purchaseService = PurchaseService.from(products);
+        return ExceptionHandler.input(inputView::readProducts, 0);
     }
 
-    private void setInputMoney() {
-
+    private Integer setInputMoney() {
+        OutputView.printRequestInputMoney();
+        return ExceptionHandler.input(inputView::readMoney, 0);
     }
 
     private boolean IsStilChange() {
