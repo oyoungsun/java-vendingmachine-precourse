@@ -23,3 +23,4 @@
 
 # REFACTORING
 - 상품 금액이 정수 범위를 벗어날 수 있다.
+- CONVERT PRODUCT "[콜라,1500,20];"

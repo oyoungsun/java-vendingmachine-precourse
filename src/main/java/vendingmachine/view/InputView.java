@@ -18,7 +18,9 @@ public class InputView {
     private static final String NOT_PRODUCT_PATTERN = "상품명, 가격, 수량은 쉼표로, 개별 상품은 대괄호([])로 묶어 세미콜론(;)으로 구분됩니다";
     private static final String PRODUCTS_SPLIT_DELIMITER = ";";
     private static final String PRODUCT_SPLIT_DELIMITER = ",";
-    private static final String PRODUCT_REGEX = "\\[([^,]+),(\\d+),(\\d+)\\]"; //TODO : [^,]+를 [,]제외한 모든 문자로
+    private static final String PREFIX = "[";
+    private static final String SUFFIX = "]";
+    private static final String PRODUCT_REGEX = "\\"+PREFIX+"([^,]+),(\\d+),(\\d+)"+"\\"+SUFFIX; //TODO : [^,]+를 [,]제외한 모든 문자로
     private static final Pattern PRODUCT = Pattern.compile(PRODUCT_REGEX);
 
     public int readHoldMoney() {
@@ -62,7 +64,10 @@ public class InputView {
     }
 
     private void convertProduct(final HashMap<Product, Integer> products, final String item) {
-        String[] splited = item.split(PRODUCT_SPLIT_DELIMITER);
+
+        String[] splited = item.replace(PREFIX, "")
+                .replace(SUFFIX, "")
+                .split(PRODUCT_SPLIT_DELIMITER);
         if (splited.length != 3) {
             throw new IllegalArgumentException(NOT_PRODUCT_PATTERN);
         }

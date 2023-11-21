@@ -10,7 +10,6 @@ public class OutputView {
 
     public static void printRequestHoldMoney() {
         System.out.println(OutputMessage.REQUEST_HOLD_MONEY.getView());
-        printEmpty();
     }
 
     public static void printHoldCoin(final HoldCoinDto coins) {

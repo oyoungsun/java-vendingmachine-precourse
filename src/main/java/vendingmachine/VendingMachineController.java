@@ -45,11 +45,12 @@ public class VendingMachineController {
 
     private void setProducts() {
         OutputView.printRequestProducts();
-        Products products = inputView.readProducts();
+        Products products = ExceptionHandler.input(inputView::readProducts, 0);
         purchaseService = PurchaseService.from(products);
     }
 
     private void setInputMoney() {
+
     }
 
     private boolean IsStilChange() {
